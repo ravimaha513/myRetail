@@ -3,6 +3,7 @@ package com.retail.rest.myRetail.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="PRODUCT")
@@ -10,6 +11,8 @@ public class Product {
     @Id
     private long id;
     private String name;
+
+    @Transient
     CurrentPrice current_priceObject;
 
 

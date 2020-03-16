@@ -1,8 +1,16 @@
 package com.retail.rest.myRetail.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CURRENT_PRICE")
 public class CurrentPrice {
 
     private float value;
+
+    @Id
     private String currency_code;
 
 
