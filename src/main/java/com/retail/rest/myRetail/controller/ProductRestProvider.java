@@ -24,7 +24,6 @@ public class ProductRestProvider {
     @PostMapping("/product")
     public ResponseEntity<?> createProduct(@RequestBody Product product){
         productService.createProduct(product);
-        //return ResponseEntity.created();
         return null;
     }
 
