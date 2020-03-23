@@ -1,46 +1,50 @@
 package com.retail.rest.myRetail.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Transient;
 
-@Entity
-@Table(name="PRODUCT")
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+@Setter
+@Getter
+@ToString
+@EqualsAndHashCode
+@Document(collection = "products")
 public class Product {
-    @Id
+
+    @NotNull(message = "id may not be null")
     private long id;
+
     private String name;
 
-    @Transient
-    CurrentPrice current_priceObject;
+    @NotNull
+    @NonNull
+    CurrentPrice current_price;
 
-
-    // Getter Methods
-
-    public float getId() {
+    public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public CurrentPrice getCurrent_price() {
-        return current_priceObject;
-    }
-
-    // Setter Methods
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setCurrent_price(CurrentPrice current_priceObject) {
-        this.current_priceObject = current_priceObject;
+    public CurrentPrice getCurrent_price() {
+        return current_price;
+    }
+
+    public void setCurrent_price(CurrentPrice current_price) {
+        this.current_price = current_price;
     }
 }

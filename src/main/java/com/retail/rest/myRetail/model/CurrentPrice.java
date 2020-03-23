@@ -1,21 +1,21 @@
 package com.retail.rest.myRetail.model;
 
-
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.math.BigDecimal;
 
-@Setter
+
+
 @Getter
+@Setter
 @ToString
 @EqualsAndHashCode
-public class ProductDetails {
+public class CurrentPrice {
 
-	long productId;
-	String productName;
-	
-	
+    private BigDecimal value;
+    private String currency_code;
+
 }
